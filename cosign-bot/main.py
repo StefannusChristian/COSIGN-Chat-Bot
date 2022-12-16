@@ -145,6 +145,14 @@ fasilitas_kos_crystal = ['AC','Free Wifi','Kamar Mandi dalam','Dapur','Parkir Mo
 
 fasilitas_kos_rukita = ['AC', 'Kamar Mandi dalam', 'Meja', 'Kursi', 'Lemari Pakaian']
 
+fasilitas_aprt_jasmine = ['Kitchen','Balkoni','Laundry','Kamar Mandi Dalam','AC','2 Bed Room']
+
+fasilitas_aprt_springhill = ['3 Bed Room','Kamar Mandi Dalam','Balkoni']
+
+fasilitas_aprt_springhill_lain = ['3 Bedroom','1 gudang','Kitchen','Balkoni','TV','Bathtub']
+
+fasilitas_aprt_grand_palace = ['AC','Dapur','Kamar mandi luar maupun dalam','TV','Ruang tamu luas + sofa','Ada air hangat','Balkoni']
+
 print('Starting up bot...')
 
 # Lets us use the /start command
@@ -390,6 +398,70 @@ def handle_response(text):
     for apartement in apartement_terdekat:
         if apartement.strip() in text: 
             return apartement_responds
+    
+    # Apart The Mansion Jasmine Tower --> aprt-1
+    aprt_jasmine = 'Apartment The Mansion Jasmine Tower Details\n\n'
+    harga = 'Harga: ± 1.42 juta / bulan\n\n'
+    aprt_jasmine += harga
+    aprt_jasmine += 'Fasilitas\n'
+    for i in range(len(fasilitas_aprt_jasmine)):
+        curr_str_jasmine = f'{i+1}. {fasilitas_aprt_jasmine[i]}\n'
+        aprt_jasmine+=curr_str_jasmine
+    aprt_jasmine+="\nJarak Dari CIT:\n"
+    jarak_dari_cit = "± 3 km"
+    aprt_jasmine+=jarak_dari_cit
+    aprt_jasmine += '\n\nInformasi Tambahan:\n1. Harga belum termasuk air dan listrik'
+
+    if text=="aprt-1":
+        return aprt_jasmine
+
+    # Apart Springhill --> aprt-2
+    aprt_springhill = 'Apartment Springhill Details\n\n'
+    harga = 'Harga: 2.05 juta / bulan\n\n'
+    aprt_springhill += harga
+    aprt_springhill += 'Fasilitas\n'
+    for i in range(len(fasilitas_aprt_springhill)):
+        curr_str_springhill = f'{i+1}. {fasilitas_aprt_springhill[i]}\n'
+        aprt_springhill+=curr_str_springhill
+    aprt_springhill+="\nJarak Dari CIT:\n"
+    jarak_dari_cit = "± 2.9 km"
+    aprt_springhill+=jarak_dari_cit
+    aprt_springhill += '\n\nInformasi Tambahan:\n1. Bisa muat maksimal 6 orang'
+
+    if text=="aprt-2":
+        return aprt_springhill
+
+    # Apart Springhill Lain --> aprt-3
+    aprt_springhill_lain = 'Apartment Springhill Lain Details\n\n'
+    harga = 'Harga: 2.13 juta / bulan\n\n'
+    aprt_springhill_lain += harga
+    aprt_springhill_lain += 'Fasilitas\n'
+    for i in range(len(fasilitas_aprt_springhill_lain)):
+        curr_str_springhill_lain = f'{i+1}. {fasilitas_aprt_springhill_lain[i]}\n'
+        aprt_springhill_lain+=curr_str_springhill_lain
+    aprt_springhill_lain+="\nJarak Dari CIT:\n"
+    jarak_dari_cit = "± 2.9 km"
+    aprt_springhill_lain+=jarak_dari_cit
+
+    if text=="aprt-3":
+        return aprt_springhill_lain
+    
+    # Apart Grand Palace Kemayoran --> aprt-4
+    aprt_grand_palace = 'Apartment Grand Palace Kemayoran Details\n\n'
+    harga = 'Harga: 1.55 juta / bulan\n\n'
+    aprt_grand_palace += harga
+    aprt_grand_palace += 'Fasilitas\n'
+    for i in range(len(fasilitas_aprt_grand_palace)):
+        curr_str_springhill_lain = f'{i+1}. {fasilitas_aprt_grand_palace[i]}\n'
+        aprt_grand_palace+=curr_str_springhill_lain
+    aprt_grand_palace+="\nJarak Dari CIT:\n"
+    jarak_dari_cit = "± 1.7 km"
+    aprt_grand_palace+=jarak_dari_cit
+    aprt_springhill += '\n\nInformasi Tambahan:\n1. 81 m²(3 bed room)'
+
+    if text=="aprt-4":
+        return aprt_grand_palace
+
 
     
     # Unknown Text
