@@ -164,9 +164,19 @@ def help_command(update, context):
     Hi there!\nSepertinya kamu butuh bantuan.
     \nBerikut merupakan text-text yang kalian dapat tanyakan ke chat-bot kami!\n
     '''
-    reply_text_string += ', '.join(greetings)
-    reply_text_string = reply_text_string[:-1]
-    
+    reply_text_string += 'Greetings:\n'
+    for i in range(len(greetings)):
+        cur_str_reply = f'{i+1}. {greetings[i]}\n'
+        reply_text_string += cur_str_reply
+    reply_text_string += '\n    Kos Terdekat:\n'
+    for i in range(len(kos_terdekat)):
+        cur_str_reply = f'{i+1}. {kos_terdekat[i]}\n'
+        reply_text_string += cur_str_reply
+    reply_text_string += '\n    Apartemen Terdekat:\n'
+    for i in range(len(apartement_terdekat)):
+        cur_str_reply = f'{i+1}. {apartement_terdekat[i]}\n'
+        reply_text_string += cur_str_reply
+        
     update.message.reply_text(reply_text_string)
 
 
